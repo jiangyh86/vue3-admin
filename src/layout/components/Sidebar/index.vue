@@ -1,15 +1,15 @@
 <template>
   <div>
-  <h1 class="logo-title" v-if="$store.getters.sidebarOpened">
-        {{ $t('msg.test') }}
-</h1>
+
     <div class="logo-container">
       <el-avatar
         :size="logoHeight"
         shape="square"
         src="https://wang-rich.oss-cn-hangzhou.aliyuncs.com/md/202204071504617.png"
       />
-      <h1 class="logo-title" v-if="$store.getters.sidebarOpened">super-admin</h1>
+      <h1 class="logo-title" v-if="$store.getters.sidebarOpened">
+        {{ $t('msg.test') }}
+</h1>
     </div>
     <el-scrollbar>
       <sidebar-menu></sidebar-menu>
