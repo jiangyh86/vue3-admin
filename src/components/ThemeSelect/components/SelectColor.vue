@@ -27,12 +27,6 @@ const store = useStore()
 // 默认色值
 const mColor = ref(store.getters.mainColor)
 /**
- * 关闭
- */
-const closed = () => {
-  emits('update:modelValue', false)
-}
-/**
  * 确定
  * 1. 修改主题色
  * 2. 保存最新的主题色
