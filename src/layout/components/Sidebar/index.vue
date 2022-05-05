@@ -8,7 +8,7 @@
         src="https://wang-rich.oss-cn-hangzhou.aliyuncs.com/md/202204071504617.png"
       />
       <h1 class="logo-title" v-if="$store.getters.sidebarOpened">
-        {{ $t('msg.test') }}
+        super-admin
 </h1>
     </div>
     <el-scrollbar>
