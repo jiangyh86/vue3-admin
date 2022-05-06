@@ -58,7 +58,6 @@ const onSelectChange = (val) => {
   router.push(val.path)
   onClose()
 }
-
 // 检索数据源
 const router = useRouter()
 let searchPool = computed(() => {
@@ -94,6 +93,7 @@ const initFuse = (searchPool) => {
   })
 }
 initFuse(searchPool.value)
+
 // 处理国际化
 watchSwitchLang(() => {
   searchPool = computed(() => {
