@@ -6,6 +6,7 @@ import { generateColors } from '@/utils/theme'
 const getters = {
   token: (state) => state.user.token,
   userInfo: (state) => state.user.userInfo,
+  tagsViewList: state => state.app.tagsViewList,
 
   // @return true 表示已存在用户信息
   hasUserInfo: (state) => {
