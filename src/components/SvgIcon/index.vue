@@ -9,7 +9,7 @@
 import { isExternal as external } from '@/utils/validate'
 import { computed } from 'vue'
 const props = defineProps({
-  // icon图标
+  // icon 图标
   icon: {
     type: String,
     required: true
@@ -20,20 +20,24 @@ const props = defineProps({
     default: ''
   }
 })
-// 判断是否为外部图标
-const isExternal = computed(() => external(props.icon))
 
-// 外部图标样式
+/**
+ * 判断是否为外部图标
+ */
+const isExternal = computed(() => external(props.icon))
+/**
+ * 外部图标样式
+ */
 const styleExternalIcon = computed(() => ({
   mask: `url(${props.icon}) no-repeat 50% 50%`,
   '-webkit-mask': `url(${props.icon}) no-repeat 50% 50%`
 }))
-
-// 项目内图标
+/**
+ * 项目内图标
+ */
 const iconName = computed(() => `#icon-${props.icon}`)
 </script>
 
-// 假定当前默认字体尺寸是14px，n em即为14px字体尺寸的n倍
 <style scoped>
 .svg-icon {
   width: 1em;

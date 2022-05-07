@@ -7,7 +7,7 @@
     <!-- 循环渲染 -->
     <sidebar-item v-for="item in route.children" :key="item.path" :route="item"></sidebar-item>
   </el-sub-menu>
-  <!-- 渲染item项 -->
+  <!-- 渲染 item 项 -->
   <el-menu-item v-else :index="route.path">
     <menu-item :title="route.meta.title" :icon="route.meta.icon"></menu-item>
   </el-menu-item>
@@ -15,7 +15,7 @@
 
 <script setup>
 import MenuItem from './MenuItem'
-// 定义props
+// 定义 props
 defineProps({
   route: {
     type: Object,
@@ -23,5 +23,3 @@ defineProps({
   }
 })
 </script>
-
-<style></style>

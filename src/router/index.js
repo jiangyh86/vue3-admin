@@ -1,7 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import layout from '@/layout'
 
-// 私有路由表
+/**
+ * 私有路由表
+ */
 const privateRoutes = [
   {
     path: '/user',
@@ -97,7 +99,9 @@ const privateRoutes = [
   }
 ]
 
-// 公开路由表
+/**
+ * 公开路由表
+ */
 const publicRoutes = [
   {
     path: '/login',

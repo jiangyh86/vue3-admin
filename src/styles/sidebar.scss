@@ -1,23 +1,22 @@
-@import './variables.scss';
+@import './variables.module.scss';
 
 #app {
   .main-container {
-    min-height: 100%;
     transition: margin-left #{$sideBarDuration};
+    min-height: 100%;
     margin-left: $sideBarWidth;
     position: relative;
   }
 
   .sidebar-container {
+    transition: width #{$sideBarDuration};
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     width: $sideBarWidth !important;
     height: 100%;
-    // background-color: #fff;
     background-color: $menuBg;
-    transition: width #{$sideBarDuration};
     z-index: 1001;
     overflow: hidden;
 
@@ -69,11 +68,11 @@
       width: 100% !important;
     }
 
-    .is-active > .el-submenu__title {
+    .is-active>.el-submenu__title {
       color: $subMenuActiveText !important;
     }
 
-    & .nest-menu .el-submenu > .el-submenu__title,
+    & .nest-menu .el-submenu>.el-submenu__title,
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
     }
@@ -108,7 +107,7 @@
     .el-submenu {
       overflow: hidden;
 
-      & > .el-submenu__title {
+      &>.el-submenu__title {
         padding: 0 !important;
 
         .svg-icon {
@@ -127,8 +126,8 @@
 
     .el-menu--collapse {
       .el-submenu {
-        & > .el-submenu__title {
-          & > span {
+        &>.el-submenu__title {
+          &>span {
             height: 0;
             width: 0;
             overflow: hidden;
@@ -145,6 +144,7 @@
   }
 
   .withoutAnimation {
+
     .main-container,
     .sidebar-container {
       transition: none;
@@ -153,10 +153,11 @@
 }
 
 .el-menu--vertical {
-  & > .el-menu {
+  &>.el-menu {
     .svg-icon {
       margin-right: 16px;
     }
+
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;
@@ -164,7 +165,7 @@
   }
 
   // 菜单项过长时
-  > .el-menu--popup {
+  >.el-menu--popup {
     max-height: 100vh;
     overflow-y: auto;
 

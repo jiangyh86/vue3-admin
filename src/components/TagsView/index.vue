@@ -2,6 +2,7 @@
   <div class="tags-view-container">
     <el-scrollbar class="tags-view-wrapper">
       <router-link
+        @contextmenu.prevent="openMenu($event, index)"
         class="tags-view-item"
         :class="isActive(tag) ? 'active' : ''"
         :style="{
@@ -11,7 +12,6 @@
         v-for="(tag, index) in $store.getters.tagsViewList"
         :key="tag.fullPath"
         :to="{ path: tag.fullPath }"
-        @contextmenu.prevent="openMenu($event, index)"
       >
         {{ tag.title }}
         <i v-show="!isActive(tag)" class="el-icon-close" @click.prevent.stop="onCloseClick(index)">X </i>
@@ -22,9 +22,9 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
 import ContextMenu from './ContextMenu.vue'
 import { ref, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 const route = useRoute()
 
 /**

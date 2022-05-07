@@ -7,7 +7,7 @@
         <!-- 顶部的 navbar -->
         <navbar />
         <!-- tags -->
-        <tags-view></tags-view>
+        <tags-view id="guide-tags"></tags-view>
       </div>
       <!-- 内容区 -->
       <AppMain />
@@ -16,16 +16,17 @@
 </template>
 
 <script setup>
-import variables from '@/styles/variables.scss'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain'
 import TagsView from '@/components/TagsView'
+import {} from 'vue'
+import variables from '@/styles/variables.module.scss'
 </script>
 
 <style lang="scss" scoped>
-@import '~@/styles/mixin.scss';
-@import '~@/styles/variables.scss';
+@import '~@/styles/mixins.scss';
+@import '~@/styles/variables.module.scss';
 
 .app-wrapper {
   @include clearfix;

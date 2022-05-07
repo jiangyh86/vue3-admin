@@ -31,20 +31,21 @@ service.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
 // 请求拦截器
 service.interceptors.request.use(
   (config) => {
-    // 在这个位置需要统一的去注意token
+    // 在这个位置需要统一的去注入token
     if (store.getters.token) {
       if (isCheckTimeout()) {
         // 登出操作
         store.dispatch('user/logout')
-        return Promise.reject(new Error('用户验证已失效，清重新登陆！'))
+        return Promise.reject(new Error('token 失效'))
       }
-      // 如果token存在. 注入token
+      // 如果token存在 注入token
       config.headers.Authorization = `Bearer ${store.getters.token}`
     }
+    // 配置接口国际化
+    config.headers['Accept-Language'] = store.getters.language
     return config // 必须返回配置
   },
   (error) => {

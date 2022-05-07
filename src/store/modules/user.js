@@ -1,14 +1,16 @@
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
+// 增加解构removeAllItem
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
-import { TOKEN } from '@/constant'
+// 增加 导入路由
 import router from '@/router'
+import { TOKEN } from '@/constant'
 import { setTimeStamp } from '@/utils/auth'
-
 export default {
   namespaced: true,
   state: () => ({
     token: getItem(TOKEN) || '',
+    // 增加
     userInfo: {}
   }),
   mutations: {
@@ -16,6 +18,7 @@ export default {
       state.token = token
       setItem(TOKEN, token)
     },
+    // 增加
     setUserInfo(state, userInfo) {
       state.userInfo = userInfo
     }
@@ -30,19 +33,17 @@ export default {
           password: md5(password)
         })
           .then((data) => {
+            setTimeStamp()
             resolve(data)
             console.log(data)
-            // this.commit('user/setToken', data.data.data.token)
             this.commit('user/setToken', data.token)
-            // 保存登录时间
-            setTimeStamp()
-            resolve()
           })
           .catch((err) => {
             reject(err)
           })
       })
     },
+    // 增加
     async getUserInfo(context) {
       const res = await getUserInfo()
       console.log(res)

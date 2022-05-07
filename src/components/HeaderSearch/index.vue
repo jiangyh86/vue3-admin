@@ -1,6 +1,6 @@
 <template>
   <div :class="{ show: isShow }" class="header-search">
-    <svg-icon class-name="search-icon" icon="search" @click.stop="onShowClick" />
+    <svg-icon id="guide-search" class-name="search-icon" icon="search" @click.stop="onShowClick" />
     <el-select
       ref="headerSearchSelectRef"
       class="header-search-select"
@@ -28,8 +28,8 @@ import { ref, computed, watch } from 'vue'
 import { filterRouters } from '@/utils/route'
 import { useRouter } from 'vue-router'
 import { generateRoutes } from './FuseData'
-import { watchSwitchLang } from '@/utils/i18n'
 import Fuse from 'fuse.js'
+import { watchSwitchLang } from '@/utils/i18n'
 
 // 控制 search 显示
 const isShow = ref(false)
@@ -58,6 +58,7 @@ const onSelectChange = (val) => {
   router.push(val.path)
   onClose()
 }
+
 // 检索数据源
 const router = useRouter()
 let searchPool = computed(() => {
@@ -94,15 +95,6 @@ const initFuse = (searchPool) => {
 }
 initFuse(searchPool.value)
 
-// 处理国际化
-watchSwitchLang(() => {
-  searchPool = computed(() => {
-    const filterRoutes = filterRouters(router.getRoutes())
-    return generateRoutes(filterRoutes)
-  })
-  initFuse(searchPool.value)
-})
-
 /**
  * 关闭 search 的处理事件
  */
@@ -120,6 +112,14 @@ watch(isShow, (val) => {
   } else {
     document.body.removeEventListener('click', onClose)
   }
+})
+// 处理国际化
+watchSwitchLang(() => {
+  searchPool = computed(() => {
+    const filterRoutes = filterRouters(router.getRoutes())
+    return generateRoutes(filterRoutes)
+  })
+  initFuse(searchPool.value)
 })
 </script>
 
