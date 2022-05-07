@@ -3,6 +3,7 @@
     <div class="my-info">
       <div class="my-info-roles-container">
         <slot />
+        123
       </div>
     </div>
     <div :style="{ backgroundImage: `url(${image})` }" class="my-thumb"></div>
