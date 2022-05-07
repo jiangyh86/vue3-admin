@@ -3,13 +3,12 @@
     <el-row>
       <el-col :span="6">
         <project-card class="user-card" :features="featureData"></project-card>
-        <feature :features="featureData" />
       </el-col>
       <el-col :span="18">
         <el-card>
           <el-tabs v-model="activeName">
             <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
-              <feature />
+             <feature :features="featureData" />
             </el-tab-pane>
             <el-tab-pane :label="$t('msg.profile.chapter')" name="chapter">
               <chapter />
@@ -36,6 +35,7 @@ const activeName = ref('feature')
 const featureData = ref([])
 const getFeatureData = async () => {
   featureData.value = await getFeature()
+  console.log(featureData.value)
 }
 getFeatureData()
 /**
