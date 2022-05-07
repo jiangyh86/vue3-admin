@@ -2,7 +2,7 @@
   <el-card class="user-container">
     <template #header>
       <div class="header">
-        <span>{{ $t('msg.profile.introduce') }}</span>
+        <span>{{ $t('msg.profile.introduce') }}123</span>
       </div>
     </template>
 
