@@ -2,7 +2,7 @@
   <div class="my-container">
     <el-row>
       <el-col :span="6">
-        <project-card class="user-card" :features="featureData"></project-card>
+        <project-card class="user-card" :features="featureData">123</project-card>
         <feature :features="featureData" />
       </el-col>
       <el-col :span="18">
