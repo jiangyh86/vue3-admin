@@ -40,12 +40,10 @@ const getFeatureData = async () => {
 getFeatureData()
 /**
  * 监听 语言变化，重新获取个人信息
- */
-watchSwitchLang(() => {
-  if (store.getters.token) {
-    store.dispatch('user/getUserInfo')
-  }
-})
+*/
+// 监听语言切换
+watchSwitchLang(getFeatureData)
+
 defineProps({
   features: {
     type: Array,
