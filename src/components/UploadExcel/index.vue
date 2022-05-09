@@ -6,13 +6,7 @@
       </el-button>
     </div>
 
-    <input
-      ref="excelUploadInput"
-      class="excel-upload-input"
-      type="file"
-      accept=".xlsx, .xls"
-      @change="handleChange"
-    />
+    <input ref="excelUploadInput" class="excel-upload-input" type="file" accept=".xlsx, .xls" @change="handleChange" />
     <!-- https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API -->
     <div
       class="drop"
